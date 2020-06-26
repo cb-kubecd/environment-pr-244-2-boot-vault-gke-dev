@@ -1,0 +1,96 @@
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-credential-initializer-xjcr4[0m
+{"level":"info","ts":1593173232.4916708,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1593173232.4924915,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-97z59[0m
+{"level":"info","ts":1593173233.586181,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1593173233.589785,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-git-source-cb-kubecd-environment-pr-244-2-q5zpt-kclfb[0m
+{"level":"info","ts":1593173246.6854672,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1593173248.005,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-244-2-boot-vault-gke-dev.git @ v0.0.2 in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:24d48c6412193eb35a40bf4660cd1adcaacbe893
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+no need to reconnect to cluster
+The provided requirements file has 'strictPermissions' enabled but 'provider' is not Openshift.
+This feature is only supported on Openshift
+Verifying the kubernetes cluster before we try to boot Jenkins X in namespace: **
+Trying to lazily create any missing resources to get the current cluster ready to boot Jenkins X
+Verifying Ingress...
+
+Using namespace '**' from context named '' on server ''.
+
+Installing kubectl
+Downloading https://storage.googleapis.com/kubernetes-release/release/v1.13.2/bin/linux/amd64/kubectl to /builder/home/.**/bin/kubectl...
+Downloaded /builder/home/.**/bin/kubectl
+Installing helm
+Downloading https://get.helm.sh/helm-v2.12.2-linux-amd64.tar.gz to /builder/home/.**/bin/helm.tgz...
+Downloaded /builder/home/.**/bin/helm.tgz
+Installing helm secrets plugin
+Verifying the CLI packages using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: d834a49c8e4ca3a938ee9f99ff00d1d5e29d7137
+
+WARNING: ** version specified in the version stream /builder/home/.**/jenkins-x-versions is 2.1.46. You are using 2.1.48. We highly recommend you upgrade to it.
+WARNING: To upgrade to this new version use: ** upgrade cli then re-run ** boot
+CLI packages kubectl, git, helm seem to be setup correctly
+NAME               VERSION
+**                 2.1.48
+Kubernetes cluster v1.14.10-gke.36
+kubectl            v1.13.2
+helm client        2.12.2
+git                2.21.1
+
+Verifying Storage...
+WARNING: No URL provided for storage: logs
+WARNING: No URL provided for storage: reports
+WARNING: No URL provided for storage: repository
+WARNING: Your requirements have not enabled cloud storage for backup - we recommend enabling this for kubernetes provider gke
+Storage configuration looks good
+
+Helm installed and configured
+Ensuring Helm chart repository https://storage.googleapis.com/chartmuseum.jenkins-x.io is configured
+Validating Kaniko secret in namespace **
+
+Cluster looks good, you are ready to '** boot' now!
+
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-install-velero[0m
+Modified file /workspace/source/systems/velero/Chart.yaml to set the chart to version 2
+creating the lock configmap **-lock-velero
+lock configmap **-lock-velero created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: d834a49c8e4ca3a938ee9f99ff00d1d5e29d7137
+cleaning the lock configmap **-lock-velero
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-install-velero-backups[0m
+Modified file /workspace/source/systems/velero-backups/Chart.yaml to set the chart to version 2
+creating the lock configmap **-lock-velero
+lock configmap **-lock-velero created
+Ignoring templates/default-backup.yaml
+No requirements file: /tmp/**-helm-apply-585628990/velero-backups/requirements.yaml so not checking for missing versions
+cleaning the lock configmap **-lock-velero
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-install-nginx-controller[0m
+Modified file /workspace/source/systems/**ing/Chart.yaml to set the chart to version 2
+creating the lock configmap **-lock-kube-system
+lock configmap **-lock-kube-system created
+Verifying the helm requirements versions in dir: . using version stream URL: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git and git ref: d834a49c8e4ca3a938ee9f99ff00d1d5e29d7137
+
+cleaning the lock configmap **-lock-kube-system
+
+Showing logs for build [32mcb-kubecd-environment-pr-244-2-q5zpt-2[0m stage [32mrelease[0m and container [32mstep-create-install-values[0m
+validating the external-dns secret in namespace **
+error: unable to enable 'dns' api: failed to run 'gcloud services list --enabled --project jenkins-x-bdd3' command in directory '', output: 'ERROR: (gcloud.services.list) User [712753931423-compute@developer.gserviceaccount.com] does not have permission to access project [jenkins-x-bdd3] (or it may not exist): Request had insufficient authentication scopes.'
+[31m
+Pipeline failed on stage 'release' : container 'step-create-install-values'. The execution of the pipeline has stopped.[0m
